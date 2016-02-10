@@ -1,0 +1,13 @@
+.result-container {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: center;
+  a {
+    text-decoration: none;
+  }
+}
+.result-component {
+  color: black;
+  line-height: 2em;
+}

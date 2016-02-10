@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "reactWikipediaResults",
+    "style": "scss",
+    "postcss": true
+  }
+}
