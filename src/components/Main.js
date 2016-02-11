@@ -38,7 +38,7 @@ class AppComponent extends React.Component {
   }
   updateQueryResults() {
     this.api.data.gsrsearch = this.state.query;
-    $.ajax(this.api).then(data => {data.query.pages ? this.setState({results: data.query.pages}) : this.setState({results: []})})
+    $.ajax(this.api).then(data => {'query' in data ? this.setState({results: data.query.pages}) : this.setState({results: []})})
   }
   render() {
     return (
