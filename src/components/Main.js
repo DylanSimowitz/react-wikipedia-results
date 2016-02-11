@@ -36,14 +36,21 @@ class AppComponent extends React.Component {
       results: []
     }
   }
-  updateQueryResults() {
-    this.api.data.gsrsearch = this.state.query;
-    $.ajax(this.api).then(data => {'query' in data ? this.setState({results: data.query.pages}) : this.setState({results: []})})
+  updateQueryResults(query) {
+    console.log(query)
+    this.api.data.gsrsearch = query;
+    $.ajax(this.api).then(data => {
+
+      if (query != this.state.query) {
+        return
+      }
+      'query' in data ? this.setState({results: data.query.pages}) : this.setState({results: []})
+    })
   }
   render() {
     return (
       <div className="index">
-        <SearchComponent query={this.state.query} updateQuery={event => {this.setState({query:event.target.value}, this.updateQueryResults)}}/>
+        <SearchComponent query={this.state.query} updateQuery={event => {this.setState({query:event.target.value}, this.updateQueryResults(event.target.value))}}/>
         <div className="result-container">
           {this.state.results.map((result, index) =>
             {
