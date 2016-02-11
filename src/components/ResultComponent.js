@@ -7,7 +7,7 @@ require('styles//Result.scss');
 class ResultComponent extends React.Component {
   render() {
     return (
-      <a href={'https://en.wikipedia.org/wiki/' + encodeURI(this.props.title)}>
+      <a href={this.props.url}>
         <div className="result-component">
           <h1>{this.props.title}</h1>
           <p>{this.props.description}</p>
