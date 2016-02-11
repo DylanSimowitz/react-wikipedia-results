@@ -20,14 +20,13 @@ class AppComponent extends React.Component {
         generator: 'search',
         gsrnamespace: '0',
         gsrlimit: '5',
-        prop: 'extracts|pageimages',
+        prop: 'extracts|info',
         redirects: '',
         exintro: 'true',
         exsentences: '3',
         explaintext: 'true',
         exlimit: 'max',
-        piprop: 'thumbnail',
-        pithumbsize: '250',
+        inprop: 'url',
         gsrsearch: ''
       },
       dataType: 'jsonp'
@@ -38,19 +37,8 @@ class AppComponent extends React.Component {
     }
   }
   updateQueryResults() {
-    if (this.state.query != '') {
-      this.api.data.gsrsearch = this.state.query;
-      $.ajax(this.api).done(data => {
-        this.setState({
-          results: data.query.pages
-        })
-      })
-    }
-    else {
-      this.setState({
-        results: []
-      })
-    }
+    this.api.data.gsrsearch = this.state.query;
+    $.ajax(this.api).then(data => {data.query.pages ? this.setState({results: data.query.pages}) : this.setState({results: []})})
   }
   render() {
     return (

@@ -7,7 +7,7 @@ require('styles//Result.scss');
 class ResultComponent extends React.Component {
   render() {
     return (
-      <a href={this.props.url}>
+      <a href={this.props.url} target="_tab">
         <div className="result-component">
           <h1>{this.props.title}</h1>
           <p>{this.props.description}</p>
