@@ -1,1 +1,7 @@
 /* Base Application Styles */
+.btn {
+  text-decoration: none;
+  background-color: #eeeeee;
+  color: black;
+  padding: 5px;
+}

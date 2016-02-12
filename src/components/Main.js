@@ -37,7 +37,6 @@ class AppComponent extends React.Component {
     }
   }
   updateQueryResults(query) {
-    console.log(query)
     this.api.data.gsrsearch = query;
     $.ajax(this.api).then(data => {
 

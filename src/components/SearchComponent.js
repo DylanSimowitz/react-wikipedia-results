@@ -9,7 +9,7 @@ class SearchComponent extends React.Component {
     return (
       <div className="search-component">
         <input type="text" value={this.props.query} onChange={this.props.updateQuery}/>
-        <button>Random</button>
+        <a className="btn" href="https://en.wikipedia.org/wiki/Special:Random" target="_tab">Random</a>
       </div>
     );
   }
